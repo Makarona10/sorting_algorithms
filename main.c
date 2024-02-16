@@ -1,3 +1,4 @@
+/**
 #include "sort.h"
 
 int main()
@@ -6,3 +7,4 @@ int main()
     bubble_sort(array, 5);
     return 0;
 }
+*/
