@@ -11,7 +11,7 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *iter, *key, *mover;
+    listint_t *iter, *mover;
 
     iter = *list;
     mover = *list;
