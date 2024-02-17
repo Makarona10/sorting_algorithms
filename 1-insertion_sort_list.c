@@ -12,26 +12,29 @@
 void insertion_sort_list(listint_t **list)
 {
     listint_t *current, *mover;
-    current = (*list)->next;
-    mover = *list;
-    while (current->next != NULL)
+
+    for (current = *list; current; current = current->next)
     {
-        if (current->n > current->next->n)
+        while (current->n > current->next->n && current->next)
         {
             mover = current->next;
-            current = current->prev;
-            while (mover->prev->n > mover->n && mover->prev != NULL)
-            {
-                mover->prev->next = mover->next;
-                if (mover->next)
-                    mover->next->prev = mover->prev;
-                mover->next = mover->prev;
-                mover->prev = mover->prev->prev;
-                mover->next->prev = mover;
-                mover->prev->next = mover;
-            }
+			current->next = mover->next;
+			mover->prev = current->prev;
+
+			if (current->prev)
+				current->prev->next = mover;
+
+			if (mover->next)
+				mover->next->prev = current;
+
+			current->prev = mover;
+			mover->next = current;
+
+			if (mover->prev)
+				current = mover->prev;
+			else
+				*list = mover;
             print_list(*list);
         }
-        current = current->next;
     }
 }
