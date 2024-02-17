@@ -1,40 +1,40 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - sorts a doubly linked list of integers in
- * ascending order using the Insertion sort algorithm
- *
- * @list: A list to be sorted
- *
- * Return: void
-*/
-
+ * insertion_sort_list -  sorts a doubly linked list of integers
+ * in ascending order using the Insertion sort algorithm.
+ * @list: given dl list
+ */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *mover;
+	listint_t *current, *temp;
 
-    for (current = *list; current; current = current->next)
-    {
-        while (current->n > current->next->n && current->next)
-        {
-            mover = current->next;
-			current->next = mover->next;
-			mover->prev = current->prev;
+	if (!list)
+		return;
+
+	for (current = *list; current; current = current->next)
+	{
+		while (current->next && (current->next->n < current->n))
+		{
+			temp = current->next;
+			current->next = temp->next;
+			temp->prev = current->prev;
 
 			if (current->prev)
-				current->prev->next = mover;
+				current->prev->next = temp;
 
-			if (mover->next)
-				mover->next->prev = current;
+			if (temp->next)
+				temp->next->prev = current;
 
-			current->prev = mover;
-			mover->next = current;
+			current->prev = temp;
+			temp->next = current;
 
-			if (mover->prev)
-				current = mover->prev;
+			if (temp->prev)
+				current = temp->prev;
 			else
-				*list = mover;
-            print_list(*list);
-        }
-    }
+				*list = temp;
+
+			print_list(*list);
+		}
+	}
 }
