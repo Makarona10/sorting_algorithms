@@ -12,7 +12,6 @@
 void insertion_sort_list(listint_t **list)
 {
     listint_t *current, *mover;
-
     current = *list;
     mover = *list;
 
@@ -25,7 +24,8 @@ void insertion_sort_list(listint_t **list)
             while (mover->prev->n > mover->n && mover->prev != NULL)
             {
                 mover->prev->next = mover->next;
-                mover->next->prev = mover->prev;
+                if (mover->next)
+                    mover->next->prev = mover->prev;
                 mover->next = mover->prev;
                 mover->prev = mover->prev->prev;
                 mover->next->prev = mover;

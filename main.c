@@ -30,12 +30,12 @@ listint_t *add_nodeint_end(listint_t **head, const int n) {
 int main()
 {
     listint_t *head;
-    add_nodeint_end(&head, 12);
-    add_nodeint_end(&head, 3);
-    add_nodeint_end(&head, 7);
-    add_nodeint_end(&head, 14);
-    add_nodeint_end(&head, 2);
     add_nodeint_end(&head, 78);
+    add_nodeint_end(&head, 14);
+    add_nodeint_end(&head, 12);
+    add_nodeint_end(&head, 7);
+    add_nodeint_end(&head, 3);
+    add_nodeint_end(&head, 2);
     print_list(head);
     insertion_sort_list(&head);
     return 0;
