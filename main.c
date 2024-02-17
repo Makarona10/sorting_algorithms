@@ -36,7 +36,6 @@ int main()
     add_nodeint_end(&head, 7);
     add_nodeint_end(&head, 3);
     add_nodeint_end(&head, 2);
-    print_list(head);
     insertion_sort_list(&head);
     return 0;
 }
