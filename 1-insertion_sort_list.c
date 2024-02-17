@@ -11,22 +11,28 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *iter, *mover;
+    listint_t *current, *mover;
 
-    iter = *list;
+    current = *list;
     mover = *list;
 
-    while (iter->next != NULL)
+    while (current != NULL)
     {
-        while (mover->prev->n > iter->n || mover->prev != NULL)
+        if (current->next->n < current->n)
         {
-            mover->prev->next = mover->next;
-            mover->next = mover->prev;
-            mover->prev = mover->prev->prev;
-            mover->next->prev = mover;
-            print_list(*list);
+            mover = current->next;
+            while (mover->prev->n > mover->n && mover->prev != NULL)
+            {
+                mover->prev->next = mover->next;
+                mover->next->prev = mover->prev;
+                mover->next = mover->prev;
+                mover->prev = mover->prev->prev;
+                mover->next->prev = mover;
+                if (mover->prev != NULL)
+                    mover->prev->next = mover;
+                print_list(*list);
+            }
+            current = current->next;
         }
-        iter = iter->next;
-        mover = iter;
     }
 }
