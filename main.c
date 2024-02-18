@@ -31,13 +31,8 @@ listint_t *add_nodeint(listint_t **head, const int n)
 
 int main()
 {
-    listint_t *head;
-    add_nodeint(&head, 9);
-    add_nodeint(&head, 14);
-    add_nodeint(&head, 12);
-    add_nodeint(&head, -1);
-    add_nodeint(&head, 3);
-    add_nodeint(&head, 2);
-    insertion_sort_list(&head);
+    int ar[] = {6, 8, 1, 13, 7, 5};
+    print_array(ar, 6);
+    selection_sort(ar, 6);
     return 0;
 }
