@@ -40,7 +40,9 @@ void selection_sort(int *array, size_t size)
             }
         }
         if (flag)
+        {
             swap_elements(array, i, minIdx);
             print_array(array, size);
+        }    
     }
 }
