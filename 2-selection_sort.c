@@ -23,17 +23,20 @@ void selection_sort(int *array, size_t size)
     int min;
     bool flag;
 
+    if (size < 2)
+		return;
+
     for (i = 0; i < size; i++)
     {
         flag = false;
         min = array[i];
-        for (j = i; j < size; j++)
+        for (j = i + 1; j < size; j++)
         {
             if (array[j] < min)
             {
+                min = array[j];
                 flag = true;
                 swap_elements(array, i, j);
-                min = array[i];
             }
         }
         if (flag == true)
