@@ -20,7 +20,7 @@ void swap_elements(int arr[], int index1, int index2) {
 void selection_sort(int *array, size_t size)
 {
     size_t i, j;
-    int min;
+    int min, minIdx;
     bool flag;
 
     if (size < 2)
@@ -35,11 +35,12 @@ void selection_sort(int *array, size_t size)
             if (array[j] < min)
             {
                 min = array[j];
+                minIdx = j;
                 flag = true;
-                swap_elements(array, i, j);
             }
         }
-        if (flag == true)
+        if (flag)
+            swap_elements(array, i, minIdx);
             print_array(array, size);
     }
 }
