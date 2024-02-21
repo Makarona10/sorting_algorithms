@@ -12,7 +12,7 @@
  * Return: void
 */
 
-void swap_elements(int arr[], int index1, int index2)
+void swap_elements(int *arr, int index1, int index2)
 {
 	int temp = arr[index1];
 

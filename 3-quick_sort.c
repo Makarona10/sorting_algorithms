@@ -14,30 +14,29 @@
  * Return: The index of pivot
 */
 
-int partitioner(int **array, int low, int high, size_t size)
+size_t partitioner(int *array, size_t low, size_t high, size_t size)
 {
-	int pivot, x, y;
+	size_t x, y, pivot;
 
 	pivot = high;
 	x = low;
 
 	for (y = x; y < high; y++)
 	{
-		if ((*array)[y] <= (*array)[pivot])
+		if ((array)[y] <= (array)[pivot])
 		{
 			if (x != y)
 			{
-				swap_elements(*array, x, y);
-				print_array(*array, size);
+				swap_elements(array, x, y);
+				print_array(array, size);
 			}
 			x += 1;
 		}
 	}
-
 	if (x != y)
 	{
-		swap_elements(*array, x, y);
-		print_array(*array, size);
+		swap_elements(array, x, y);
+		print_array(array, size);
 	}
 	return (x);
 }
@@ -54,11 +53,11 @@ int partitioner(int **array, int low, int high, size_t size)
  * Return: void
  */
 
-void sort_it(int **array, size_t low, size_t high, size_t size)
+void sort_it(int *array, size_t low, size_t high, size_t size)
 {
-	size_t sorted_index;
+    size_t sorted_index;
 
-	if (low < high && *array)
+	if (low < high && array)
 	{
 		sorted_index = partitioner(array, low, high, size);
 
@@ -83,8 +82,8 @@ void sort_it(int **array, size_t low, size_t high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	if (size < 2 || !array)
-		return;
+    if (size < 2 || !array)
+        return;
 
-	sort_it(&array, 0, size - 1, size);
+    sort_it(array, 0, size - 1, size);
 }
