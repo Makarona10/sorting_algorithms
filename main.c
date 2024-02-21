@@ -31,8 +31,8 @@ listint_t *add_nodeint(listint_t **head, const int n)
 
 int main()
 {
-    int ar[] = {-1, -8, 8, 0, 7, -2};
-    print_array(ar, 6);
-    selection_sort(ar, 6);
+    int ar[] = {-1, 5, 8, -5, 0, -2, 7, 14, 4};
+    quick_sort(ar, 9);
+    print_array(ar, 9);
     return 0;
 }
