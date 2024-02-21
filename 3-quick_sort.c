@@ -1,13 +1,13 @@
 #include "sort.h"
 
 /**
- * swap_pos - swaps position of values in array
+ * swap - swaps position of values in array
  *
  * @array: array to be changed
  * @first: first index
  * @second: second index
  */
-void swap_pos(int *array, size_t first, size_t second)
+void swap(int *array, size_t first, size_t second)
 {
 	int holder;
 
@@ -17,7 +17,7 @@ void swap_pos(int *array, size_t first, size_t second)
 }
 
 /**
- * partitioner: splits the array into 2 arrays
+ * partitioner - splits the array into 2 arrays
  *
  * @array: The array will be splitted
  *
@@ -43,8 +43,8 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
 		{
 			if (x != y)
 			{
-				swap_pos(array, x, y);
-				print_array(array, size);
+				swap(array, x, y);
+				swap(array, size);
 			}
 			x += 1;
 		}
@@ -60,6 +60,8 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
 /**
  * sort_it - sorts an array in ascending order
  *
+ * @array: The array that will be sorted
+ *
  * @low: The lower bound of the partitioned array
  *
  * @high: The higher bound of the partitioned array
@@ -67,11 +69,11 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
  * @size: The size of the partitioned array
  *
  * Return: void
- */
+*/
 
 void sort_it(int *array, size_t low, size_t high, size_t size)
 {
-    size_t x;
+	size_t x;
 
 	if (low < high && *array)
 	{
@@ -98,8 +100,8 @@ void sort_it(int *array, size_t low, size_t high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-    if (size < 2 || !array)
-        return;
+	if (size < 2 || !array)
+		return;
 
-    sort_it(array, 0, size - 1, size);
+	sort_it(array, 0, size - 1, size);
 }
