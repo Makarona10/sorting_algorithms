@@ -55,17 +55,17 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
 
 void sort_it(int *array, size_t low, size_t high, size_t size)
 {
-    size_t sorted_index;
+    size_t x;
 
-	if (low < high && array)
+	if (low < high && *array)
 	{
-		sorted_index = partitioner(array, low, high, size);
+		x = partitioner(array, low, high, size);
 
-		if (sorted_index - low > 1)
-			sort_it(array, low, sorted_index - 1, size);
+		if (x - low > 1)
+			sort_it(array, low, x - 1, size);
 
-		if (high - sorted_index > 1)
-			sort_it(array, sorted_index + 1, high, size);
+		if (high - x > 1)
+			sort_it(array, x + 1, high, size);
 	}
 }
 
