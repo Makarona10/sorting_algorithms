@@ -1,6 +1,22 @@
 #include "sort.h"
 
 /**
+ * swap_pos - swaps position of values in array
+ *
+ * @array: array to be changed
+ * @first: first index
+ * @second: second index
+ */
+void swap_pos(int *array, size_t first, size_t second)
+{
+	int holder;
+
+	holder = (array)[first];
+	(array)[first] = (array)[second];
+	(array)[second] = holder;
+}
+
+/**
  * partitioner: splits the array into 2 arrays
  *
  * @array: The array will be splitted
@@ -27,7 +43,7 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
 		{
 			if (x != y)
 			{
-				swap_elements(array, x, y);
+				swap_pos(array, x, y);
 				print_array(array, size);
 			}
 			x += 1;
@@ -35,7 +51,7 @@ size_t partitioner(int *array, size_t low, size_t high, size_t size)
 	}
 	if (x != y)
 	{
-		swap_elements(array, x, y);
+		swap_pos(array, x, y);
 		print_array(array, size);
 	}
 	return (x);
